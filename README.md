@@ -1,10 +1,11 @@
 # Getting Started
 
-```
+```javascript
 const vinegar = require('vinegar')
 
-const backgrounds = vinegar.load('background.feature')
-const scenarios = vinegar.load('example.feature')
+const background = vinegar.load('background.feature')
+const scenario = vinegar.load('example.feature')
+const outline = vinegar.load('outline.feature')
 ```
 
 # Resulting Object with Only a Background
@@ -15,7 +16,7 @@ Feature: Set browser
     Given I set the browser to "chrome"
 ```
 
-```javascript
+```json
 {
  "backgrounds": [
   {
@@ -38,7 +39,7 @@ Feature: Example
     Then the header should read "IANA-managed Reserved Domains".
 ```
 
-```javascript
+```json
 {
  "backgrounds": [],
  "scenarios": [
@@ -63,3 +64,92 @@ Feature: Example
  ]
 }
 ```
+
+# Scenario Outlines
+
+```json
+{
+ "backgrounds": [],
+ "scenarios": [
+  [
+   {
+    "keyword": "Given",
+    "text": "I start 2 browsers"
+   },
+   {
+    "keyword": "When",
+    "text": "I set the URL to \"http://example.org\""
+   },
+   {
+    "keyword": "When",
+    "text": "I set the link to click to \"More information...\""
+   },
+   {
+    "keyword": "Then",
+    "text": "the header should read \"IANA-managed Reserved Domains\"."
+   }
+  ],
+  [
+   {
+    "keyword": "Given",
+    "text": "I start 2 browsers"
+   },
+   {
+    "keyword": "When",
+    "text": "I set the URL to \"http://example.net\""
+   },
+   {
+    "keyword": "When",
+    "text": "I set the link to click to \"More information...\""
+   },
+   {
+    "keyword": "Then",
+    "text": "the header should read \"IANA-managed Reserved Domains\"."
+   }
+  ],
+  [
+   {
+    "keyword": "Given",
+    "text": "I start 2 browsers"
+   },
+   {
+    "keyword": "When",
+    "text": "I set the URL to \"http://example.com\""
+   },
+   {
+    "keyword": "When",
+    "text": "I set the link to click to \"More information...\""
+   },
+   {
+    "keyword": "Then",
+    "text": "the header should read \"IANA-managed Reserved Domains\"."
+   }
+  ],
+  [
+   {
+    "keyword": "Given",
+    "text": "I start 2 browsers"
+   },
+   {
+    "keyword": "When",
+    "text": "I set the URL to \"http://example.edu\""
+   },
+   {
+    "keyword": "When",
+    "text": "I set the link to click to \"More information...\""
+   },
+   {
+    "keyword": "Then",
+    "text": "the header should read \"IANA-managed Reserved Domains\"."
+   }
+  ]
+ ]
+}
+```
+
+# Links
+
+- [Burpless](https://github.com/jeromebelleman/vinegar), an asynchronous
+  alternative to Cucumber
+- [Gherkin Syntax](https://docs.cucumber.io/gherkin)
+- [Cucumber Guide](https://docs.cucumber.io/guides)
