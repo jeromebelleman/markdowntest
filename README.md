@@ -7,6 +7,14 @@ const backgrounds = vinegar.load('background.feature')
 const scenarios = vinegar.load('example.feature')
 ```
 
+# Object with Only a Background
+
+```
+Feature: Set browser
+  Background:
+    Given I set the browser to "chrome"
+```
+
 ```
 {
  "backgrounds": [
@@ -19,14 +27,39 @@ const scenarios = vinegar.load('example.feature')
 }
 ```
 
+# Object with Only a Scenario
+
+```
+Feature: Example
+  Scenario: I load the example.com homepage.
+    Given I start 2 browsers
+    When I set the URL to "http://example.org"
+    And I set the link to click to "More information..."
+    Then the header should read "IANA-managed Reserved Domains".
+```
+
 ```
 {
- "backgrounds": [
-  {
-   "keyword": "Given",
-   "text": "I set the browser to \"chrome\""
-  }
- ],
- "scenarios": []
+ "backgrounds": [],
+ "scenarios": [
+  [
+   {
+    "keyword": "Given",
+    "text": "I start 2 browsers"
+   },
+   {
+    "keyword": "When",
+    "text": "I set the URL to \"http://example.org\""
+   },
+   {
+    "keyword": "When",
+    "text": "I set the link to click to \"More information...\""
+   },
+   {
+    "keyword": "Then",
+    "text": "the header should read \"IANA-managed Reserved Domains\"."
+   }
+  ]
+ ]
 }
 ```
