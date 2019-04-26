@@ -7,15 +7,15 @@ const backgrounds = vinegar.load('background.feature')
 const scenarios = vinegar.load('example.feature')
 ```
 
-# Object with Only a Background
+# Resulting Object with Only a Background
 
-```
+```gherkin
 Feature: Set browser
   Background:
     Given I set the browser to "chrome"
 ```
 
-```
+```javascript
 {
  "backgrounds": [
   {
@@ -27,9 +27,9 @@ Feature: Set browser
 }
 ```
 
-# Object with Only a Scenario
+# Resulting Object with Only a Scenario
 
-```
+```gherkin
 Feature: Example
   Scenario: I load the example.com homepage.
     Given I start 2 browsers
@@ -38,7 +38,7 @@ Feature: Example
     Then the header should read "IANA-managed Reserved Domains".
 ```
 
-```
+```javascript
 {
  "backgrounds": [],
  "scenarios": [
